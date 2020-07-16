@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.CityFragment">
+
+    <TextView
+        android:id="@+id/LeavingCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leaving From"
+        android:layout_margin="5dp"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/city_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/LeavingCity"/>
+
+    <TextView
+        android:id="@+id/GoingCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Going To"
+        android:layout_margin="5dp"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/city_spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/GoingCity"/>
+
+    <TextView
+        android:id="@+id/departure_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Departure Date"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/seat_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Seat"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/ed_seat_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="seat no"/>
+
+
+
+    <TextView
+        android:id="@+id/Nationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nationality"
+        android:layout_margin="5dp"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/nationality_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Nationality"/>
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="Search Now"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

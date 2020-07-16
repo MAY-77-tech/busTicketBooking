@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/cityFragment">
+    <fragment
+        android:id="@+id/tripFragment"
+        android:name="com.example.busticketonlineboking.fragment.TripFragment"
+        android:label="fragment_trip"
+        tools:layout="@layout/fragment_trip" >
+        <action
+            android:id="@+id/action_tripFragment_to_vipFragment2"
+            app:destination="@id/vipFragment2" />
+        <action
+            android:id="@+id/action_tripFragment_to_standardFragment22"
+            app:destination="@id/standardFragment2" />
+        <argument
+            android:name="route_id"
+            app:argType="integer" />
+        <argument
+            android:name="departure_time"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/vipFragment2"
+        android:name="com.example.busticketonlineboking.fragment.VipFragment"
+        android:label="VipFragment" />
+    <fragment
+        android:id="@+id/standardFragment2"
+        android:name="com.example.busticketonlineboking.fragment.StandardFragment"
+        android:label="StandardFragment" />
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.example.busticketonlineboking.fragment.CityFragment"
+        android:label="fragment_city"
+        tools:layout="@layout/fragment_city" >
+        <action
+            android:id="@+id/action_cityFragment_to_tripFragment"
+            app:destination="@id/tripFragment" />
+    </fragment>
+</navigation>
