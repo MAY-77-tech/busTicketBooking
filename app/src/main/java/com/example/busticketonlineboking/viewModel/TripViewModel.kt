@@ -17,20 +17,20 @@ class TripViewModel:ViewModel(){
     fun getSearchTrip(): LiveData<List<Trip>> = resultSearchTrip
 
     private val apiSearchTrip = Api()
-    fun loadSearch(departure:String,route_Id:String) {
-        val apiCall = apiSearchTrip.getSearchTrip(departure,route_Id)
-
-        apiCall.enqueue(object : Callback<TripInformation> {
-            override fun onFailure(call: Call<TripInformation>, t: Throwable) {
-                Log.i("Error>>>>>>>", "Loading Fail")
-            }
-
-            override fun onResponse(call: Call<TripInformation>, response: Response<TripInformation>) {
-                response.isSuccessful.let {
-                    var searchTripList: List<Trip> = response.body()?.trips?: emptyList()
-                    resultSearchTrip.value = searchTripList
-                }
-            }
-        })
-    }
+//    fun loadSearch(departure:String,route_Id:String) {
+//        val apiCall = apiSearchTrip.getSearchTrip(departure,route_Id)
+//
+//        apiCall.enqueue(object : Callback<TripInformation> {
+//            override fun onFailure(call: Call<TripInformation>, t: Throwable) {
+//                Log.i("Error>>>>>>>", "Loading Fail")
+//            }
+//
+//            override fun onResponse(call: Call<TripInformation>, response: Response<TripInformation>) {
+//                response.isSuccessful.let {
+//                    var searchTripList: List<Trip> = response.body()?.trips?: emptyList()
+//                    resultSearchTrip.value = searchTripList
+//                }
+//            }
+//        })
+//    }
 }

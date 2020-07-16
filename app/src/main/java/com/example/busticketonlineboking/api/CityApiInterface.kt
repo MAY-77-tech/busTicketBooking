@@ -1,7 +1,6 @@
 package com.example.busticketonlineboking.api
 
-import com.example.busticketonlineboking.model.City
-import com.example.busticketonlineboking.model.TripInformation
+import com.example.busticketonlineboking.model.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -18,6 +17,9 @@ interface CityApiInterface {
     @POST("searchTrip")
     fun getSearchTrip(
         @Query("departure_time")deaparture_time:String,
-        @Query("route_id")route_id: String
-    ): Call<TripInformation>
+        @Query("route")route_id: Int
+    ): Call<Search>
+
+    @GET("route")
+    fun  getRoute(): Call<Route>
 }

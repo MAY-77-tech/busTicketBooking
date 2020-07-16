@@ -1,7 +1,6 @@
 package com.example.busticketonlineboking.api
 
-import com.example.busticketonlineboking.model.City
-import com.example.busticketonlineboking.model.TripInformation
+import com.example.busticketonlineboking.model.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,7 +29,12 @@ companion object{
         return cityApiInterface.getTrip()
     }
 
-    fun getSearchTrip(deaparture_time:String,route_Id: String): Call<TripInformation>{
+    fun getSearchTrip(deaparture_time:String,route_Id: Int): Call<Search>{
         return cityApiInterface.getSearchTrip(deaparture_time,route_Id)
     }
+
+    fun getRoute(): Call<Route>{
+        return cityApiInterface.getRoute()
+    }
+
 }

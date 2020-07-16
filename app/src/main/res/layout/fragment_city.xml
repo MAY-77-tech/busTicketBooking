@@ -1,80 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_home"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.CityFragment">
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardCornerRadius="10dp"
+    android:padding="20dp"
+    android:background="@color/colorAccent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"  >
 
-    <TextView
-        android:id="@+id/LeavingCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Leaving From"
-        android:layout_margin="5dp"/>
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/city_spinner"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/LeavingCity"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".fragment.CityFragment">
 
-    <TextView
-        android:id="@+id/GoingCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Going To"
-        android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/LeavingCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Leaving From" />
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/city_spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/GoingCity"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLeavingCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
 
-    <TextView
-        android:id="@+id/departure_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Departure Date"
-        android:layout_margin="5dp"/>
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/city_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/LeavingCity" />
 
-    <TextView
-        android:id="@+id/seat_no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number of Seat"
-        android:layout_margin="5dp"/>
-
-    <EditText
-        android:id="@+id/ed_seat_no"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="seat no"/>
+        </androidx.cardview.widget.CardView>
 
 
+        <TextView
+            android:id="@+id/GoingCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Going To" />
 
-    <TextView
-        android:id="@+id/Nationality"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nationality"
-        android:layout_margin="5dp"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGoingCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/nationality_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/Nationality"/>
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/city_spinner1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/GoingCity" />
 
-    <Button
-        android:id="@+id/search_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_red_light"
-        android:text="Search Now"/>
+        </androidx.cardview.widget.CardView>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:text="Departure Date" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/departure_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Choose Date"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/Nationality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:text="Nationality" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardNationality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/nationality_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/Nationality" />
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/ed_seat_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:hint="seat no"
+            android:inputType="number" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Cardbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="120dp"
+            android:background="@color/colorPrimary"
+            app:cardCornerRadius="10dp">
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:padding="8dp"
+                android:text="Search Now" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>

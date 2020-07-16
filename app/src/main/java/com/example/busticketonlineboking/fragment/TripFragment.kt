@@ -12,16 +12,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.busticketonlineboking.R
-import com.example.busticketonlineboking.adapter.TripAdapter
+import com.example.busticketonlineboking.adapter.RouteAdapter
 import com.example.busticketonlineboking.model.Trip
-import com.example.busticketonlineboking.viewModel.CarInformationViewModel
+import com.example.busticketonlineboking.model.TripX
+import com.example.busticketonlineboking.viewModel.SearchTripVM
+import com.example.busticketonlineboking.viewModel.TripViewModel
 import kotlinx.android.synthetic.main.fragment_trip.*
 
-class TripFragment : Fragment(),TripAdapter.ClickListener {
+class TripFragment : Fragment(), RouteAdapter.ClickListener {
 
-    private lateinit var viewModel: CarInformationViewModel
-    private lateinit var viewManager  : RecyclerView.LayoutManager
-    private var tripAdapter: TripAdapter=TripAdapter()
+    private lateinit var srarchViewModel: SearchTripVM
+    private var routeAdapter: RouteAdapter = RouteAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,40 +34,31 @@ class TripFragment : Fragment(),TripAdapter.ClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewManager = LinearLayoutManager(this.context)
+        srarchViewModel = ViewModelProvider(this).get(SearchTripVM::class.java)
+        var data = arguments.let { TripFragmentArgs.fromBundle(it!!) }
+        var resultDepartureTime = data.departureTime
+        var routeId = data.routeId
+        srarchViewModel.loadSearch(resultDepartureTime, routeId)
         recycler.apply {
-            layoutManager = viewManager
-            adapter =tripAdapter
-            obserViewModel()
+            adapter = routeAdapter
+            layoutManager = LinearLayoutManager(context)
         }
-
-
-    }
-
-    private fun obserViewModel(){
-    viewModel = ViewModelProvider(this).get(CarInformationViewModel::class.java)
-        viewModel.tripInformation.observe(viewLifecycleOwner, Observer{
-            recycler.visibility = View.VISIBLE
-            tripAdapter.updateList(it)
-            tripAdapter.setClickListener(this)
-            Log.d("UpdateList>>>>",it.toString())
-        }
+        srarchViewModel.getSearchTrip().observe(
+            viewLifecycleOwner,
+            Observer {
+                routeAdapter.setClickListener(this)
+                routeAdapter.updateList(it)
+            }
         )
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.loadTrip()
-    }
-
-    override fun onClickTripAdapter(tripResultList: Trip) {
-Log.e("Trip>>>>",tripResultList.class_name )
-        if(tripResultList.class_name== "VIP"){
-            findNavController().navigate(R.id.action_tripFragment_to_vipFragment2)
-        }else{
-            findNavController().navigate(R.id.action_tripFragment_to_standardFragment22)
+    override fun onClickTripAdapter(tripResultList: TripX) {
+        Log.e("TRIP TYPE", tripResultList.class_name)
+        if (tripResultList.class_name=="VIP"){
+            findNavController().navigate(R.id.vipFragment2)
+        }
+        if (tripResultList.class_name=="Standard"){
+            findNavController().navigate(R.id.standardFragment2)
         }
     }
-
-
 }

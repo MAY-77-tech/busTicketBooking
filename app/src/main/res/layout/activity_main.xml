@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:navGraph="@navigation/navigation"
-        android:name="com.example.busticketonlineboking.fragment.CityFragment"/>
+        android:name="androidx.navigation.fragment.NavHostFragment"/>
 <!--        android:name="androidx.navigation.fragment.NavHostFragment"/>-->
 
     <!--        android:name="com.example.busticketonlineboking.fragment.TripFragment"/>-->
